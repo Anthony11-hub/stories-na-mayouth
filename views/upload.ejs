@@ -1,0 +1,142 @@
+<%- include('partials/admin-header') %>
+<body id="page-top">
+  <div id="wrapper">
+    <%- include('partials/sidebar') %>
+    <div id="content-wrapper" class="d-flex flex-column">
+      <div id="content">
+        <!-- Topbar -->
+        <%- include('partials/navbar') %>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <div class="col-sm-12 form-legend">
+            <h2>Upload Products</h2>
+          </div>
+
+          <!-- form to post a product -->
+          <form
+            name="uploadForm"
+            action="/api/v1/post"
+            method="POST"
+            enctype="multipart/form-data"
+            class="container"
+            style="background: #fff; border-radius: 10px">
+            <div class="row justify-content-center">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="name">Product Name: </label>
+                  <input
+                    type="text"
+                    name="productTitle"
+                    id="productName"
+                    class="form-control" />
+                </div>
+
+                <div class="form-group">
+                  <label for="description">Product Description</label>
+                  <textarea
+                    class="form-control"
+                    id="description"
+                    name="productDescription"
+                    rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="productCategory">Product Category: </label>
+                  <select
+                    class="form-control"
+                    id="productCategory"
+                    name="productCategory">
+                    <option value="home and office">home and office</option>
+                    <option value="clothes and fashion">
+                      clothes and fashion
+                    </option>
+                    <option value="arts and creatives">
+                      arts and creatives
+                    </option>
+                    <option class="computer accessories">
+                      computer accessories
+                    </option>
+                    <option class="tv and electronics">
+                      tv and electronics
+                    </option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Product Price: </label>
+                  <input
+                    type="number"
+                    name="productPrice"
+                    id="productPrice"
+                    class="form-control" />
+                </div>
+
+                <div class="form-group">
+                  <label for="productCategory">Product Condition: </label>
+                  <select
+                    class="form-control"
+                    id="productCondition"
+                    name="productCondition">
+                    <option value="brand new">Brand New</option>
+                    <option value="Slightly Used">Slighty used</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="name">Product Brand: </label>
+                  <input
+                    type="text"
+                    name="productBrand"
+                    id="productBrand"
+                    class="form-control" />
+                </div>
+                <div class="form-group">
+                  <label for="productCategory">Product availability: </label>
+                  <select
+                    class="form-control"
+                    id="productAvailability"
+                    name="productAvailability">
+                    <option value="In stock">In stock</option>
+                    <option value="Out of Stock">Out of Stock</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="upload">Product Images: </label>
+                  <input
+                    type="file"
+                    class="form-control-file"
+                    id="image"
+                    name="images" />
+                  <input
+                    type="file"
+                    class="form-control-file"
+                    id="image"
+                    name="images" />
+                  <input
+                    type="file"
+                    class="form-control-file"
+                    id="image"
+                    name="images" />
+                  <input
+                    type="file"
+                    class="form-control-file"
+                    id="image"
+                    name="images" />
+                  <small class="form-text text-muted">
+                    Only.jpg,.jpeg,.png and.gif files are allowed.
+                  </small>
+                </div>
+                <button type="submit" class="btn btn-primary">submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <%- include('partials/footer-2') %>
+    </div>
+  </div>
+</body>

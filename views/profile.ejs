@@ -1,0 +1,107 @@
+<%- include('partials/head') %>
+<head>
+  <link rel="stylesheet" href="/css/style-2.css" />
+  <style>
+    .socials .social-link {
+      color: var(--white);
+      padding: 10px;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<%- include('partials/header') %>
+<main>
+  <article>
+    <section
+      class="hero-section"
+      id="home"
+      aria-label="home"
+      style="background-image: url('/images/bg-top-3.jpg'); height: 200px">
+      <div class="container">
+        <div class="hero-content">
+          <p class="hero-subtitle">Stories na Mayouth</p>
+          <h1 class="h1 hero-title">Who is <span class="span"></span></h1>
+        </div>
+      </div>
+    </section>
+    <!-- about section -->
+    <section class="about-section" id="about" aria-label="about ">
+      <div class="container">
+        <div class="about-content">
+          <!--Image Column-->
+          <div class="image-column">
+            <div
+              class="inner-column"
+              data-wow-delay="0ms"
+              data-wow-duration="1500ms">
+              <div class="image">
+                <img src="" alt="" />
+              </div>
+            </div>
+          </div>
+          <!--Content Column-->
+          <div class="content-column">
+            <div class="inner-column">
+              <div class="sec-title">
+                <h2 class="name"></h2>
+              </div>
+              <div class="text"></div>
+              <div class="sec-title">
+                <h2>Connect on</h2>
+              </div>
+              <div class="text" style="margin-top: 10px">
+                <ul
+                  class="socials"
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    gap: 10px;
+                  ">
+                  <li>
+                    <a
+                      href="#"
+                      class="social-link"
+                      style="background-color: #3b5998">
+                      <ion-icon name="logo-facebook"></ion-icon>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="#"
+                      class="social-link"
+                      style="background-color: #55acee">
+                      <ion-icon name="logo-twitter"></ion-icon>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="#"
+                      class="social-link"
+                      style="background-color: #d71e18">
+                      <ion-icon name="logo-pinterest"></ion-icon>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="#"
+                      class="social-link"
+                      style="background-color: #1565c0">
+                      <ion-icon name="logo-linkedin"></ion-icon>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+</main>
+<script src="/js/member-detail.js"></script>
+
+<%- include('partials/footer') %>

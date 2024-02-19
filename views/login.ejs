@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body>
+    <section class="form-section">
+      <form id="submitForm" method="POST" action="/auth/login">
+        <h2>Admin Login</h2>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required />
+        <div class="name error"></div>
+        <label for="password">Password</label>
+        <input type="password" name="password" required />
+        <div class="password error"></div>
+        <button type="submit">Sign up</button>
+      </form>
+    </section>
+  </body>
+</html>

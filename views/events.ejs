@@ -1,0 +1,39 @@
+<%- include('partials/head') %>
+<head>
+  <style>
+    .hero-section {
+      min-height: 40vh !important;
+    }
+  </style>
+</head>
+<%- include('partials/header') %>
+<main>
+  <article>
+    <section
+      class="hero-section"
+      id="home"
+      aria-label="home"
+      style="background-image: url('/images/bg-top-3.jpg'); height: 200px">
+      <div class="container">
+        <div class="hero-content">
+          <p class="hero-subtitle">Stories na Mayouth</p>
+          <h1 class="h1 hero-title">Events <span class="span"></span></h1>
+        </div>
+      </div>
+    </section>
+    <section class="section blog" id="blog" aria-label="blog">
+      <div class="container">
+        <p class="section-text">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptate
+          doloribus, dignissimos, consequ
+        </p>
+        <ul class="blog-list js-event-card">
+          <!-- event cards go here -->
+        </ul>
+      </div>
+    </section>
+  </article>
+</main>
+<script src="/js/events.js"></script>
+
+<%- include('partials/footer') %>

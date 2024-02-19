@@ -1,0 +1,71 @@
+<%- include('partials/head') %>
+<head>
+  <link rel="stylesheet" href="/css/style-2.css" />
+  <style>
+    .btn {
+      color: #fff !important;
+    }
+  </style>
+</head>
+<%- include('partials/header') %>
+<main>
+  <article>
+    <section
+      class="hero-section"
+      id="home"
+      aria-label="home"
+      style="background-image: url('/images/bg-top-3.jpg'); height: 200px">
+      <div class="container">
+        <div class="hero-content">
+          <p class="hero-subtitle">Stories na Mayouth</p>
+          <h1 class="h1 hero-title"></h1>
+        </div>
+      </div>
+    </section>
+    <!-- about section -->
+    <section class="about-section" id="about" aria-label="about ">
+      <div class="container">
+        <div class="about-content">
+          <!--Image Column-->
+          <div class="image-column">
+            <div
+              class="inner-column"
+              data-wow-delay="0ms"
+              data-wow-duration="1500ms">
+              <div class="image">
+                <img src="" alt="" />
+              </div>
+            </div>
+          </div>
+          <!--Content Column-->
+          <div class="content-column">
+            <div class="inner-column">
+              <div class="sec-title">
+                <h2></h2>
+              </div>
+              <div class="text"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      class="programs-section"
+      id="programs"
+      aria-label="programs"
+      style="padding-block: 40px">
+      <div class="container">
+        <h2 class="h2" style="margin-bottom: 20px; color: #333">
+          Related <span class="span">Programs</span>
+        </h2>
+
+        <ul class="program-cards js-program-card">
+          <!-- cards go here -->
+        </ul>
+      </div>
+    </section>
+  </article>
+</main>
+<script src="/js/program-detail.js"></script>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,144 @@
+<%- include('partials/head') %>
+<head>
+  <link rel="stylesheet" href="/css/product.css" />
+</head>
+<%- include('partials/header') %>
+<main>
+  <article>
+    <section class="product">
+      <div class="container">
+        <div class="product-image">
+          <div class="selected-image">
+            <figure
+              class="card-banner img-holder"
+              style="--width: 400; --height: 290">
+              <img
+                src=""
+                width="400"
+                height="290"
+                loading="lazy"
+                alt="product Image"
+                class="img-cover" />
+            </figure>
+          </div>
+          <div class="product-image-select">
+            <!-- <img
+              src=""
+              width="400"
+              height="290"
+              loading="lazy"
+              alt=""
+              class="img-cover"
+              id="img-1" />
+            <img
+              src=""
+              width="400"
+              height="290"
+              loading="lazy"
+              alt=""
+              class="img-cover"
+              id="img-2" />
+            <img
+              src=""
+              width="400"
+              height="290"
+              loading="lazy"
+              alt=""
+              class="img-cover"
+              id="img-3" />
+            <img
+              src=""
+              width="400"
+              height="290"
+              loading="lazy"
+              alt=""
+              class="img-cover"
+              id="img-4" /> -->
+          </div>
+        </div>
+        <div class="product-details">
+          <!-- location and post date -->
+          <ul class="card-meta-list">
+            <li class="card-meta-item">
+              <ion-icon name="calendar-outline"></ion-icon>
+
+              <time datetime="2022-09-19" class="item-text"></time>
+            </li>
+          </ul>
+          <!-- category -->
+          <div class="product-category">
+            <p></p>
+          </div>
+          <!-- product name -->
+          <div class="product-name">
+            <h2 class="h2"></h2>
+          </div>
+          <!-- product description -->
+          <div class="product-content">
+            <p></p>
+          </div>
+          <!-- product price -->
+          <div class="product-price">
+            <h2 class="h2"></h2>
+          </div>
+          <!-- availability, brand and condition -->
+          <div class="product-specifics">
+            <ul>
+              <li class="availability">
+                <!-- Availability:<p class="availability"></p> -->
+              </li>
+              <li class="brand">
+                <!-- Brand: <span class="brand"></span> -->
+              </li>
+              <li class="condition">
+                <!-- Condition: <span class="condition"></span> -->
+              </li>
+            </ul>
+          </div>
+          <!-- contact -->
+          <h2 class="h2" style="color: #000; font-size: 24px">
+            Interested in this Item?
+          </h2>
+          <div class="contact-btns">
+            <a href="">
+              <ion-icon name="call-outline"></ion-icon>
+              <p>Call Now</p>
+            </a>
+            <p>or</p>
+            <a href="">
+              <ion-icon name="logo-whatsapp"></ion-icon>
+              <p>Whatsapp</p></a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- related products -->
+    <section class="related">
+      <div class="container">
+        <h2 class="h2">Related Products</h2>
+        <ul class="product-card-list js-related-products">
+          <!-- fetch related products -->
+        </ul>
+      </div>
+    </section>
+  </article>
+</main>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const productImageSelectContainer = document.querySelector(
+      ".product-image-select"
+    );
+    const selectedImage = document.querySelector(".selected-image img");
+
+    productImageSelectContainer.addEventListener("click", function (event) {
+      if (event.target.tagName === "IMG") {
+        const newSrc = event.target.src;
+        selectedImage.src = newSrc;
+      }
+    });
+  });
+</script>
+
+<script src="/js/product-detail.js"></script>
+<%- include('partials/footer') %>

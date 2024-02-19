@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Register</title>
+    <style>
+      body {
+        font-family: arial;
+        margin: 0;
+      }
+
+      nav {
+        background: #ff5353;
+        padding: 20px 10px;
+      }
+
+      nav ul {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0;
+      }
+
+      nav li {
+        list-style-type: none;
+        display: inline-block;
+        margin: 0 10px 0 0;
+      }
+
+      nav a {
+        color: #fff;
+        font-size: 18px;
+        background: rgba(255, 255, 255, 0.2);
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+      }
+
+      main,
+      header {
+        max-width: 960px;
+        margin: 30px auto;
+        padding: 0 10px;
+        color: #333;
+      }
+
+      .google-btn {
+        color: #fff;
+        font-size: 18px;
+        background: #5398ff;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <% if (user) {%>
+        <li><a href="/auth/logout">Logout</a></li>
+        <% } else { %>
+        <li><a href="/auth/login">Login</a></li>
+        <% } %>
+      </ul>
+    </nav>
+    <header>
+      <h1>Register</h1>
+    </header>
+    <main>
+      <div class="row">
+        <br />
+        <div class="col-md-2 col-sm-3 text-center">
+          <form name="signInForm" action="/auth/register" method="post">
+            UserName: <input type="text" name="username" id="username" /><br />
+            <label for="securityQuestion">Select a Security Question:</label>
+            <select id="securityQuestion" name="securityQuestion">
+              <option value="motherMaidenName">
+                What is your mother's maiden name?
+              </option>
+              <option value="favoriteBook">What is your favorite book?</option>
+              <option value="favoriteBand">
+                What is your favorite music band or artist?
+              </option>
+              <option value="birthCity">In which city were you born?</option>
+              <option value="firstPetName">
+                What is the name of your first pet?
+              </option></select
+            ><br />
+
+            <label for="securityAnswer">Security Answer:</label>
+            <input
+              type="text"
+              id="securityAnswer"
+              name="securityAnswer"
+              required /><br />
+
+            Password:
+            <input type="password" name="password" id="password" /><br />
+            Confirm Password:
+            <input
+              type="password"
+              name="confPassword"
+              id="confPassword" /><br />
+            <input type="submit" value="Sign in" />
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

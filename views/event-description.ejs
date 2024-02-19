@@ -1,0 +1,55 @@
+<%- include('partials/head') %>
+<head>
+  <link rel="stylesheet" href="/css/blog.css" />
+</head>
+<%- include('partials/header') %>
+<main>
+  <article>
+    <section class="main">
+      <div class="d-container">
+        <div class="blog">
+          <h2 class="h2"></h2>
+          <div class="blog-details">
+            <div class="blog-image">
+              <figure
+                class="card-banner img-holder"
+                style="--width: 400; --height: 290">
+                <img src="" alt="" loading="lazy" class="img-cover" />
+              </figure>
+            </div>
+            <div class="blog-content">
+              <p class="blog-text-content"></p>
+            </div>
+          </div>
+          <div class="wrapper-flex">
+            <div class="profile-wrapper">
+              <img
+                src="./images/user-circle-svgrepo-com.svg"
+                alt="author profile image"
+                width="50" />
+            </div>
+            <div class="wrapper">
+              <div class="text-sm">
+                <p class="text-sm">
+                  <time>22-4-2024</time>
+                  <span class="separator"></span>
+                  <a href="#" class="h4">Ruiru Hall</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- aside -->
+        <div class="aside">
+          <h2 class="h2">Previous Events</h2>
+          <ul class="js-event-card">
+            <!-- previous events go here -->
+          </ul>
+        </div>
+      </div>
+    </section>
+  </article>
+</main>
+<script src="/js/event-details.js"></script>
+
+<%- include('partials/footer') %>

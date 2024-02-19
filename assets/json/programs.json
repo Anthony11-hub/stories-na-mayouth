@@ -1,0 +1,33 @@
+[
+    {
+      "name": "Education",
+      "image": "/images/education-min.jpg",
+      "description": "This category focuses on initiatives aimed at promoting education and academic excellence among youth. It includes programs such as tutoring, scholarships, educational workshops, and career counseling sessions. The goal is to empower young people with knowledge and skills to succeed academically and pursue their educational aspirations."
+    },
+    {
+      "name": "Community Engagements",
+      "image": "/images/community.jpg",
+      "description": "Community engagements involve activities that connect youth with their communities and encourage active participation in social issues and local development initiatives. This may include volunteer work, community service projects, environmental clean-up drives, and advocacy campaigns. The aim is to foster a sense of responsibility, empathy, and civic engagement among young people."
+    },
+    {
+      "name": "Exhibition",
+      "image": "/images/exhibition.jpg",
+      "description": "Exhibition programs provide platforms for youth to showcase their talents, creativity, and innovative ideas. This may include art exhibitions, talent shows, innovation fairs, and cultural showcases. Through exhibitions, young people can gain recognition for their achievements, build confidence, and inspire others with their talents and ideas."
+    },
+    {
+      "name": "Exchange Programs",
+      "image": "/images/exchange.jpg",
+      "description": "Exchange programs offer opportunities for youth to participate in cultural exchanges, international collaborations, and immersive learning experiences in different countries or regions. These programs promote cross-cultural understanding, global citizenship, and personal growth. Participants often develop intercultural communication skills, broaden their perspectives, and form lasting connections with peers from diverse backgrounds."
+    },
+    {
+      "name": "Research",
+      "image": "/images/research.jpg",
+      "description": "Research initiatives empower youth to explore pressing social issues, conduct scientific inquiries, and contribute to knowledge generation and innovation. This may include research competitions, academic conferences, field studies, and scientific investigations. Through research, young people develop critical thinking skills, problem-solving abilities, and a deeper understanding of complex issues affecting their communities and the world."
+    },
+    {
+      "name": "Storytelling",
+      "image": "/images/story-1.jpg",
+      "description": "Storytelling initiatives harness the power of storytelling to amplify the voices and experiences of young people. This may involve storytelling workshops, digital storytelling projects, spoken word events, and narrative-based advocacy campaigns. By sharing their stories, youth can inspire empathy, raise awareness about social issues, and advocate for positive change in their communities."
+    }
+  ]
+  

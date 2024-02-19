@@ -1,0 +1,218 @@
+<%- include('partials/head') %>
+<head>
+  <link rel="stylesheet" href="/css/style-2.css" />
+</head>
+<%- include('partials/header') %>
+<main>
+  <article>
+    <section
+      class="hero-section"
+      id="home"
+      aria-label="home"
+      style="background-image: url('./images/bg-top-3.jpg')">
+      <div class="container">
+        <div class="hero-content">
+          <p class="hero-subtitle">About us</p>
+          <h1 class="h1 hero-title">Who <span class="span">We are</span></h1>
+        </div>
+      </div>
+    </section>
+    <!-- about -->
+    <section class="about-section" id="about" aria-label="about ">
+      <div class="container">
+        <div class="about-content">
+          <div class="image-column">
+            <div
+              class="inner-column"
+              data-wow-delay="0ms"
+              data-wow-duration="1500ms">
+              <div class="image">
+                <img src="/images/bg-2.jpg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="content-column">
+            <div class="inner-column">
+              <div class="sec-title">
+                <h2 class="h2">
+                  <span
+                    class="span"
+                    style="
+                      font-family: 'Libre Baskerville', serif;
+                      color: #555;
+                      font-weight: 700;
+                    "
+                    >We are a Non profit Organization</span
+                  >
+                </h2>
+              </div>
+              <div class="text">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book.
+              </div>
+              <div class="quote-text">
+                <blockquote>
+                  Lorem Ipsum is simply dummy text of the printing and
+                  typesetting industry. Lorem Ipsum has been the industry's
+                  standard dummy text
+                </blockquote>
+              </div>
+            </div>
+            <div class="mission-column">
+              <ul class="client-list">
+                <li>
+                  <div class="client-card">
+                    <h3 class="h3 title">Our Mission</h3>
+
+                    <p class="text">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Harum vel tempora at dolorem? Nemo, vel ut sapiente optio
+                      numquam aliquid nihil laudantium perferendis eveniet
+                      officia! Nemo molestiae accusantium omnis quia.
+                    </p>
+                  </div>
+                </li>
+
+                <li>
+                  <div class="client-card">
+                    <h3 class="h3 title">Our Vision</h3>
+
+                    <p class="text">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Harum vel tempora at dolorem? Nemo, vel ut sapiente optio
+                      numquam aliquid nihil laudantium perferendis eveniet
+                      officia! Nemo molestiae accusantium omnis quia.
+                    </p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="history section">
+      <div class="container">
+        <h2 class="h2 section-title" style="color: #333">
+          Our <span class="span"> History</span>
+        </h2>
+
+        <div class="history-content">
+          <div class="history-text">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
+              totam laborum distinctio voluptas porro minus, minima temporibus
+              facilis soluta asperiores expedita magnam consequuntur animi,
+              eveniet hic quam accusamus molestiae sed! Lorem ipsum dolor sit
+              amet consectetur adipisicing elit. Impedit totam laborum
+              distinctio voluptas porro minus, minima temporibus facilis soluta
+              asperiores expedita magnam consequuntur animi, eveniet hic quam
+              accusamus molestiae sed!
+            </p>
+          </div>
+          <ul class="timeline">
+            <li>
+              <div class="direction-r">
+                <div class="flag-wrapper">
+                  <span class="flag">First Event</span>
+                  <span class="time-wrapper"
+                    ><span class="time">October 1st 2023</span></span
+                  >
+                </div>
+                <div class="desc">
+                  This was the first time the group members met at the ruiru
+                  social hall. Ever since then, members have inceased in number.
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="direction-l">
+                <div class="flag-wrapper">
+                  <span class="flag">Group created</span>
+                  <span class="time-wrapper"
+                    ><span class="time">August 2023</span></span
+                  >
+                </div>
+                <div class="desc">
+                  My first employer. All the stuff I've learned and projects
+                  I've been working on.
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="direction-r">
+                <div class="flag-wrapper">
+                  <span class="flag">Ideation Stage</span>
+                  <span class="time-wrapper"
+                    ><span class="time">January 2023</span></span
+                  >
+                </div>
+                <div class="desc">
+                  A description of all the lectures and courses I have taken and
+                  my final degree?
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <h2 class="h2 section-title" style="color: #555; margin-bottom: 40px">
+      Meet the <span class="span">Team</span>
+    </h2>
+    <section class="t-section">
+      <div class="slide-container swiper container">
+        <div class="slide-content">
+          <div class="card-wrapper swiper-wrapper js-member-card">
+            <!-- card goes here -->
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+  </article>
+</main>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".slide-content", {
+    slidesPerView: 3,
+    spaceBetween: 25,
+    loop: true,
+    centerSlide: "true",
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+    },
+    fade: "true",
+    grabCursor: "true",
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+      dynamicBullets: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      520: {
+        slidesPerView: 2,
+      },
+      950: {
+        slidesPerView: 3,
+      },
+    },
+  });
+</script>
+<script src="/js/members.js"></script>
+<%- include('partials/footer') %>

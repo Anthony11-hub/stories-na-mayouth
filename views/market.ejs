@@ -1,0 +1,149 @@
+<%- include('partials/head') %>
+<head>
+  <link rel="stylesheet" href="/css/market.css" />
+</head>
+<%- include('partials/header') %>
+<main>
+  <article>
+    <section class="main">
+      <div class="d-container">
+        <div class="aside">
+          <div class="contact">
+            <p class="text">
+              Market Hub is a platform by the Stories na MaYouth community to
+              connect individual sellers and customers online. Want to become a
+              seller? reach out to us and our team will be happy to help.
+            </p>
+            <div class="contact-btns">
+              <a href="">
+                <ion-icon name="call-outline"></ion-icon>
+                <p>Call us Now</p>
+              </a>
+              <a href="">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+                <p>Enquire via Whatsapp</p></a
+              >
+            </div>
+          </div>
+          <div class="filter-products">
+            <div class="aside-title">
+              <p>Filter by name</p>
+              <div class="price-filter">
+                <input
+                  type="text"
+                  placeholder="Search by name..."
+                  class="first-search" />
+              </div>
+            </div>
+            <div class="aside-content">
+              <!-- category filter -->
+              <p>Filter by Category</p>
+              <div class="dropdown">
+                <div class="select">
+                  <span class="selected">Choose Category</span>
+                  <div class="caret"></div>
+                </div>
+                <ul class="menu-list">
+                  <li>All Products</li>
+                  <li>home and office</li>
+                  <li>Clothes and Fashion</li>
+                  <li>Arts and Creatives</li>
+                  <li>Computer Accessories</li>
+                  <li>Tv and electronics</li>
+                </ul>
+              </div>
+              <p>Filter by Price</p>
+              <!-- price filter -->
+              <div class="price-filter">
+                <!-- min -->
+                <input type="number" placeholder="Min 0KES" id="min-price" />
+                <!-- max -->
+                <input type="number" placeholder="Max Price" id="max-price" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="products">
+          <h2 class="h2">Market Place</h2>
+          <div class="filter-products-sm">
+            <!-- search bar -->
+            <div class="search-bar">
+              <div class="ion-container">
+                <ion-icon name="search-outline"></ion-icon>
+              </div>
+              <input
+                type="text"
+                name=""
+                class="second-search"
+                placeholder="Search name..." />
+            </div>
+            <!-- category -->
+            <div class="dropdown">
+              <div class="select">
+                <span class="selected">Choose Category</span>
+                <div class="caret"></div>
+              </div>
+              <ul class="menu-list">
+                <li>All Products</li>
+                <li>home and office</li>
+                <li>Clothes and Fashion</li>
+                <li>Arts and Creatives</li>
+                <li>Computer Accessories</li>
+                <li>Tv and electronics</li>
+              </ul>
+            </div>
+            <!-- filter by price -->
+          </div>
+          <ul class="product-card-list js-products-list">
+            <!-- product goes here -->
+          </ul>
+        </div>
+      </div>
+      <!-- pagination -->
+      <div class="pagination">
+        <button class="prev-btn">
+          <ion-icon name="arrow-back-outline"></ion-icon>
+          Prev
+        </button>
+        <span class="page-count"></span>
+        <button class="next-btn">
+          Next
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </button>
+      </div>
+      <!--  -->
+    </section>
+  </article>
+</main>
+<script>
+  const dropdowns = document.querySelectorAll(".dropdown");
+
+  dropdowns.forEach((dropdown) => {
+    const select = dropdown.querySelector(".select");
+    const menu = dropdown.querySelector(".menu-list");
+    const caret = dropdown.querySelector(".caret");
+    const options = dropdown.querySelectorAll(".menu-list li");
+    const selected = dropdown.querySelector(".selected");
+
+    select.addEventListener("click", () => {
+      menu.classList.toggle("menu-open");
+      caret.classList.toggle("caret-rotate");
+    });
+
+    options.forEach((option) => {
+      option.addEventListener("click", () => {
+        selected.textContent = option.textContent;
+        menu.classList.remove("menu-open");
+        caret.classList.remove("caret-rotate");
+
+        options.forEach((option) => {
+          option.classList.remove("active");
+        });
+
+        option.classList.add("active");
+      });
+    });
+  });
+</script>
+<script src="/js/products.js"></script>
+<%- include('partials/footer') %>
