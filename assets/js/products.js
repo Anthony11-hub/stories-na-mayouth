@@ -26,6 +26,24 @@ fetch("/api/v1/post")
     }
 
     /**
+     * Format the product price in Kenyan Shillings.
+     * @param {number} price - The product price.
+     * @returns {string} The formatted price with KSH symbol.
+     */
+    function formatPrice(price) {
+      const roundedPrice = Math.round(price); // Round to the nearest whole number
+
+      const formattedPrice = new Intl.NumberFormat("en-KE", {
+        style: "currency",
+        currency: "KES", // Kenyan Shilling currency code
+        minimumFractionDigits: 0, // Set the minimum fraction digits to 0
+        maximumFractionDigits: 0, // Set the maximum fraction digits to 0
+      }).format(roundedPrice);
+
+      return formattedPrice;
+    }
+
+    /**
      * @param {Object} productToDisplay - The products to display.
      */
     function showproduct(productToDisplay) {
@@ -39,7 +57,7 @@ fetch("/api/v1/post")
             <div class="product-card">
               <figure
                 class="card-banner img-holder"
-                style="--width: 400; --height: 290">
+                style="--width: 400; --height: 340">
                 <img
                   src="../posts/${product.productImage[0]}"
                   width="400"
@@ -60,7 +78,9 @@ fetch("/api/v1/post")
                   >
                 </h3>
 
-                <p class="product-price">${product.productPrice}</p>
+                <p class="product-price">${formatPrice(
+                  product.productPrice
+                )}</p>
               </div>
             </div>
             </a>

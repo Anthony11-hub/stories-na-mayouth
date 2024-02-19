@@ -7,6 +7,24 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((responseData) => {
       const products = responseData.data;
 
+      /**
+       * Format the product price in Kenyan Shillings.
+       * @param {number} price - The product price.
+       * @returns {string} The formatted price with KSH symbol.
+       */
+      function formatPrice(price) {
+        const roundedPrice = Math.round(price); // Round to the nearest whole number
+
+        const formattedPrice = new Intl.NumberFormat("en-KE", {
+          style: "currency",
+          currency: "KES", // Kenyan Shilling currency code
+          minimumFractionDigits: 0, // Set the minimum fraction digits to 0
+          maximumFractionDigits: 0, // Set the maximum fraction digits to 0
+        }).format(roundedPrice);
+
+        return formattedPrice;
+      }
+
       const selectedproduct = products.find(
         (product) => product._id === productId
       );
@@ -59,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
         ).textContent = selectedproduct.productTitle;
         document.querySelector(
           ".product-details .product-price .h2"
-        ).textContent = selectedproduct.productPrice;
+        ).textContent = formatPrice(selectedproduct.productPrice);
         document.querySelector(
           ".product-details .product-specifics .availability"
         ).textContent = selectedproduct.productAvailability;
@@ -84,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
           ".js-related-products"
         );
 
-        otherproducts.slice(0, 8).forEach((product) => {
+        otherproducts.slice(0, 4).forEach((product) => {
           const listItem = document.createElement("li");
           listItem.innerHTML = `
           <a href="product-detail?${createSlug(
@@ -93,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="product-card">
               <figure
                 class="card-banner img-holder"
-                style="--width: 400; --height: 290">
+                style="--width: 400; --height: 340">
                 <img
                   src="../posts/${product.productImage[0]}"
                   width="400"
@@ -114,7 +132,9 @@ document.addEventListener("DOMContentLoaded", function () {
                   >
                 </h3>
 
-                <p class="product-price">${product.productPrice}</p>
+                <p class="product-price">${formatPrice(
+                  product.productPrice
+                )}</p>
               </div>
             </div>
           </a>
