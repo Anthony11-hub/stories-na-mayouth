@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((responseData) => {
       const products = responseData.data;
 
+      console.log(products);
+
       /**
        * Format the product price in Kenyan Shillings.
        * @param {number} price - The product price.
@@ -33,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const selectedImageContainer = document.querySelector(
           ".selected-image figure img"
         );
-        selectedImageContainer.src = `/posts/${selectedproduct.productImage[0]}`;
+        selectedImageContainer.src = `${selectedproduct.productImage[0]}`;
 
         const productImageSelectContainer = document.querySelector(
           ".product-image-select"
@@ -45,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Loop through product images and create image elements for each
         selectedproduct.productImage.forEach((image, index) => {
           const imageElement = document.createElement("img");
-          imageElement.src = `/posts/${image}`;
+          imageElement.src = `${image}`;
           imageElement.width = 400;
           imageElement.height = 290;
           imageElement.loading = "lazy";
@@ -113,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 class="card-banner img-holder"
                 style="--width: 400; --height: 340">
                 <img
-                  src="../posts/${product.productImage[0]}"
+                  src="${product.productImage[0]}"
                   width="400"
                   height="290"
                   loading="lazy"

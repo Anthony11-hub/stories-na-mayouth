@@ -1,3 +1,8 @@
+// Variables for pagination
+let currentPage = 1;
+let totalProducts = 0; // Initialize totalProducts to 0
+let productsPerPage = 0;
+
 /**
  * Fetches the response as JSON.
  *
@@ -15,10 +20,7 @@ fetch("/api/v1/post")
     const categoryFilterDropdowns = document.querySelectorAll(".dropdown");
     const prevButton = document.querySelector(".prev-btn");
     const nextButton = document.querySelector(".next-btn");
-    const pageCount = document.querySelector(".page-count");
-
-    // Variables for pagination
-    let currentPage = 1;
+    // const pageCount = document.querySelector(".page-count");
 
     // function to create a slug --- basically creating a URL friendly version of a string for SEO purposes
     function createSlug(title) {
@@ -43,11 +45,25 @@ fetch("/api/v1/post")
       return formattedPrice;
     }
 
+    // Variables for pagination
+    totalProducts = products.data.length; // Update totalProducts
+    productsPerPage = 15; // Update productsPerPage
+
+    // console.log(products.data.length);
+
+    const indexOfLastPage = currentPage * productsPerPage;
+    const indexOfFirstPage = indexOfLastPage - productsPerPage;
+    const currentItems = products.data.slice(indexOfFirstPage, indexOfLastPage);
+
     /**
      * @param {Object} productToDisplay - The products to display.
      */
     function showproduct(productToDisplay) {
-      const productHTML = productToDisplay.data
+      const productsArray = Array.isArray(productToDisplay)
+        ? productToDisplay
+        : [productToDisplay]; // Convert to an array if it's not already
+
+      const productHTML = productsArray
         .map(
           (product) => `
           <li>
@@ -59,7 +75,7 @@ fetch("/api/v1/post")
                 class="card-banner img-holder"
                 style="--width: 400; --height: 340">
                 <img
-                  src="../posts/${product.productImage[0]}"
+                  src="${product.productImage[0]}"
                   width="400"
                   height="290"
                   loading="lazy"
@@ -89,7 +105,8 @@ fetch("/api/v1/post")
         .join("");
 
       productCard.innerHTML = productHTML;
-      pageCount.textContent = currentPage;
+
+      // pageCount.textContent = currentPage;
     }
 
     /**
@@ -101,6 +118,8 @@ fetch("/api/v1/post")
       const maxPrice = maxPriceInput.value;
 
       const queryParams = [`page=${currentPage}`];
+
+      // console.log(queryParams);
 
       if (searchText) {
         queryParams.push(`name=${encodeURIComponent(searchText)}`);
@@ -130,7 +149,7 @@ fetch("/api/v1/post")
       fetch(`/api/v1/post?${queryString}`)
         .then((response) => response.json())
         .then((filteredProducts) => {
-          showproduct(filteredProducts);
+          showproduct(filteredProducts.data);
         })
         .catch((err) => {
           console.error("Error fetching filtered products: ", err);
@@ -153,7 +172,7 @@ fetch("/api/v1/post")
       showproduct({ data: secondSearchFilter });
     }
 
-    showproduct(products);
+    // showproduct(products);
 
     // server
     firstSearchBarUsingServer.addEventListener("input", filterProducts);
@@ -169,23 +188,72 @@ fetch("/api/v1/post")
       secondSearchFilter(secondSearchText);
     });
 
-    // Pagination buttons
+    // ...
+
+    function fetchAndDisplayProducts() {
+      const indexOfLastPage = currentPage * productsPerPage;
+      const indexOfFirstPage = indexOfLastPage - productsPerPage;
+      const currentItems = products.data.slice(
+        indexOfFirstPage,
+        indexOfLastPage
+      );
+      showproduct(currentItems);
+      // updatePageCount();
+    }
+
+    // ...
+
     prevButton.addEventListener("click", () => {
       if (currentPage > 1) {
         currentPage--;
-        filterProducts();
+        fetchAndDisplayProducts();
       }
     });
 
     nextButton.addEventListener("click", () => {
-      currentPage++;
-      filterProducts();
+      const totalPages = Math.ceil(totalProducts / productsPerPage);
+      if (currentPage < totalPages) {
+        currentPage++;
+        fetchAndDisplayProducts();
+      }
     });
 
     // Function to set product ID in local storage
     window.setProductId = function (productId) {
       localStorage.setItem("productId", productId);
     };
+
+    // ...
+
+    // Call fetchAndDisplayProducts initially to set the initial page
+    fetchAndDisplayProducts();
+
+    // function updatePageCount() {
+    //   const totalPages = Math.ceil(totalProducts / productsPerPage);
+    //   const pageContainer = document.querySelector(".page-count");
+    //   pageContainer.innerHTML = "";
+
+    //   for (let i = 1; i <= totalPages; i++) {
+    //     const pageElement = document.createElement("li");
+    //     pageElement.textContent = i;
+    //     pageElement.classList.add("page-number");
+
+    //     if (i === currentPage) {
+    //       pageElement.classList.add("active");
+    //     }
+    //     pageElement.addEventListener("click", () => {
+    //       currentPage = i;
+    //       filterProducts();
+    //       updatePageCount();
+    //     });
+
+    //     pageContainer.appendChild(pageElement);
+    //   }
+    // }
+
+    // Call updatePageCount initially to set the initial page count
+    // updatePageCount();
+    showproduct(products);
   })
   .catch((err) => {
     console.error("Error fetching product: ", err);

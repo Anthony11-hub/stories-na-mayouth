@@ -181,21 +181,43 @@
     font-weight: 700;
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
     display: flex;
-    gap: 10px;
+    gap: 5px;
     align-items: center;
     transition: .3s;
 }
 
-.pagination .page-count {
-    padding: 10px 20px;
+.pagination ul {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+}
+
+.pagination .page-count li.active {
+    background: var(--dark-blue);
+}
+
+.pagination .page-count li {
+    padding: 6px 20px;
     border: 1px solid var(--light-gray);
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
     font-weight: 700;
-    border-radius: 50%;
+    border-radius: 6px;
     background: var(--light-blue);
     color: #fff;
     cursor: pointer;
 }
+
+/* .pagination .page-count {
+    padding: 10px 20px;
+    border: 1px solid var(--light-gray);
+    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
+    font-weight: 700;
+    border-radius: 6px;
+    background: var(--light-blue);
+    color: #fff;
+    display: flex;
+    cursor: pointer;
+} */
 
 .pagination button:hover {
     background: var(--dark-blue);
