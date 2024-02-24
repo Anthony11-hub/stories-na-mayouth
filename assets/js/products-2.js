@@ -1,15 +1,14 @@
 const prevButton = document.querySelector(".prev-btn");
 const nextButton = document.querySelector(".next-btn");
-const firstSearchBarUsingServer = document.querySelector(".first-search");
-const secondSearchBarUsingClient = document.querySelector(".second-search");
+const searchbar = document.querySelector(".first-search");
 const minPriceInput = document.querySelector("#min-price");
 const maxPriceInput = document.querySelector("#max-price");
-const categoryFilterDropdowns = document.querySelectorAll(".dropdown");
+const categoryDropdown = document.querySelector(".dropdown");
 
 let apiUrl = "/api/v1/post";
 let productsData = [];
 let currentPage = 1;
-let productsPerPage = 15;
+let productsPerPage = 2;
 
 // function to create a slug --- basically creating a URL friendly version of a string for SEO purposes
 function createSlug(title) {
@@ -63,7 +62,7 @@ async function dataTable() {
           class="card-banner img-holder"
           style="--width: 400; --height: 340">
           <img
-            src="../posts/${product.productImage[0]}"
+            src="${product.productImage[0]}"
             width="400"
             height="290"
             loading="lazy"
@@ -93,8 +92,6 @@ async function dataTable() {
  * Filters the products based on user input.
  */
 
-dataTable();
-
 // pagination buttons
 prevButton.addEventListener("click", () => {
   if ((currentPage - 1) * productsPerPage) {
@@ -115,7 +112,26 @@ async function productTable() {
   const data = await fetch(apiUrl);
   const res = await data.json();
   productsData = res.data;
+
+  // Filter products based on minimum and maximum prices
+  const minPrice = parseFloat(minPriceInput.value) || 0;
+  const maxPrice = parseFloat(maxPriceInput.value) || Number.MAX_SAFE_INTEGER;
+
+  productsData = productsData.filter((product) => {
+    const productPrice = parseFloat(product.productPrice);
+    return productPrice >= minPrice && productPrice <= maxPrice;
+  });
 }
+
+minPriceInput.addEventListener("input", () => {
+  dataTable();
+});
+
+maxPriceInput.addEventListener("input", () => {
+  dataTable();
+});
+
+dataTable();
 
 window.setProductId = function (productId) {
   localStorage.setItem("productId", productId);

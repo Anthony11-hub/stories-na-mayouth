@@ -13,8 +13,8 @@ fetch("/api/v1/post")
   .then((response) => response.json())
   .then((products) => {
     const productCard = document.querySelector(".js-products-list");
-    const firstSearchBarUsingServer = document.querySelector(".first-search");
-    const secondSearchBarUsingClient = document.querySelector(".second-search");
+    const searchBar = document.querySelector(".first-search");
+    const searchBar2 = document.querySelector(".second-search");
     const minPriceInput = document.querySelector("#min-price");
     const maxPriceInput = document.querySelector("#max-price");
     const categoryFilterDropdowns = document.querySelectorAll(".dropdown");
@@ -23,8 +23,8 @@ fetch("/api/v1/post")
     // const pageCount = document.querySelector(".page-count");
 
     // function to create a slug --- basically creating a URL friendly version of a string for SEO purposes
-    function createSlug(title) {
-      return title.toLowerCase().replace(/\s+/g, "-");
+    function createSlug(productTitle) {
+      return productTitle.toLowerCase().replace(/\s+/g, "-");
     }
 
     /**
@@ -108,87 +108,117 @@ fetch("/api/v1/post")
 
       // pageCount.textContent = currentPage;
     }
-
-    /**
-     * Filters the products based on user input.
-     */
     function filterProducts() {
-      const searchText = firstSearchBarUsingServer.value;
+      const searchText = searchBar.value;
+      const searchText2 = searchBar2.value;
       const minPrice = minPriceInput.value;
       const maxPrice = maxPriceInput.value;
 
       const queryParams = [`page=${currentPage}`];
 
-      // console.log(queryParams);
+      let selectedCategory;
 
-      if (searchText) {
-        queryParams.push(`name=${encodeURIComponent(searchText)}`);
-      }
+      // categoryFilterDropdowns.forEach((dropdown) => {
+      //   selectedCategory = dropdown.querySelector(".selected").textContent;
+      //   if (
+      //     selectedCategory !== "Choose Category" &&
+      //     selectedCategory !== "All Products"
+      //   ) {
+      //     queryParams.push(`category=${encodeURIComponent(selectedCategory)}`);
+      //   }
+      // });
 
       categoryFilterDropdowns.forEach((dropdown) => {
-        const selectedCategory =
-          dropdown.querySelector(".selected").textContent;
-        if (
-          selectedCategory !== "Choose Category" &&
-          selectedCategory !== "All Products"
-        ) {
-          queryParams.push(`category=${encodeURIComponent(selectedCategory)}`);
-        }
+        const selectedCategories = dropdown.querySelectorAll(".selected");
+
+        selectedCategories.forEach((selectedCategory) => {
+          const categoryText = selectedCategory.textContent;
+
+          if (
+            categoryText !== "Choose Category" &&
+            categoryText !== "All Products"
+          ) {
+            queryParams.push(`category=${encodeURIComponent(categoryText)}`);
+          }
+        });
       });
 
       // Include price filter
-      if (minPrice) {
-        queryParams.push(`numericFilters=productPrice>=${minPrice}`);
+      if (minPrice || maxPrice) {
+        let priceFilter = "";
+
+        if (minPrice) {
+          priceFilter += `productPrice>=${minPrice}`;
+        }
+
+        if (maxPrice) {
+          if (priceFilter !== "") {
+            priceFilter += ",";
+          }
+          priceFilter += `productPrice<=${maxPrice}`;
+        }
+
+        queryParams.push(`numericFilters=${priceFilter}`);
       }
-      if (maxPrice) {
-        queryParams.push(`numericFilters=productPrice<=${maxPrice}`);
+
+      // Check if searchText is not empty before adding to queryParams
+      if (searchText.trim() !== "") {
+        queryParams.push(`name=${encodeURIComponent(searchText)}`);
+      }
+      if (searchText2.trim() !== "") {
+        queryParams.push(`name=${encodeURIComponent(searchText2)}`);
       }
 
       const queryString = queryParams.join("&");
 
-      fetch(`/api/v1/post?${queryString}`)
-        .then((response) => response.json())
-        .then((filteredProducts) => {
-          showproduct(filteredProducts.data);
-        })
-        .catch((err) => {
-          console.error("Error fetching filtered products: ", err);
-        });
+      console.log("Search Text:", searchText);
+      console.log("Min Price:", minPrice);
+      console.log("Max Price:", maxPrice);
+      console.log("Selected Category:", selectedCategory);
+      console.log("Query Params:", queryParams.join("&"));
+
+      console.log("Query String:", queryString);
+
+      /**
+       * Fetch products only if search text, minPrice, maxPrice is not empty
+       * and selectedCategory !== 'All Products', otherwise, use the existing products
+       * **/
+      if (
+        searchText.trim() !== "" ||
+        searchText2.trim() !== "" ||
+        selectedCategory !== "All Products" ||
+        minPrice ||
+        maxPrice
+      ) {
+        fetch(`/api/v1/post?${queryString}`)
+          .then((response) => response.json())
+          .then((filteredProducts) => {
+            console.log("Filtered Products:", filteredProducts);
+            showproduct(filteredProducts.data);
+          })
+          .catch((err) => {
+            console.error("Error fetching filtered products: ", err);
+          });
+      } else {
+        // Apply pagination logic in the else block
+        const indexOfLastPage = currentPage * productsPerPage;
+        const indexOfFirstPage = indexOfLastPage - productsPerPage;
+        const currentItems = products.data.slice(
+          indexOfFirstPage,
+          indexOfLastPage
+        );
+        showproduct({ data: currentItems });
+      }
     }
-
-    // client
-    /**
-     * Filters the products based on the input in the second search bar.
-     *
-     * @param {string} secondSearchText - The text to search for.
-     */
-    function secondSearchFilter(secondSearchText) {
-      const secondSearchFilter = products.data.filter((product) =>
-        product.productTitle
-          .toLowerCase()
-          .includes(secondSearchText.toLowerCase())
-      );
-
-      showproduct({ data: secondSearchFilter });
-    }
-
-    // showproduct(products);
 
     // server
-    firstSearchBarUsingServer.addEventListener("input", filterProducts);
+    searchBar.addEventListener("input", filterProducts);
+    searchBar2.addEventListener("input", filterProducts);
     minPriceInput.addEventListener("input", filterProducts);
     maxPriceInput.addEventListener("input", filterProducts);
     categoryFilterDropdowns.forEach((dropdown) => {
       dropdown.addEventListener("click", filterProducts);
     });
-
-    // client
-    secondSearchBarUsingClient.addEventListener("input", (event) => {
-      const secondSearchText = event.target.value;
-      secondSearchFilter(secondSearchText);
-    });
-
-    // ...
 
     function fetchAndDisplayProducts() {
       const indexOfLastPage = currentPage * productsPerPage;

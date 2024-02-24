@@ -38,8 +38,7 @@ fetch("/json/events.json")
                     </h3>
 
                     <p class="card-text">
-                      Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                      Voluptate doloribus, dignissimos, consequ
+                    ${event.eventDescription}
                     </p>
 
                     <a href="event-description?event=${event.eventTitle}" class="card-link">

@@ -1,43 +1,32 @@
 [
-    {
-      "name": "Emma Johnson",
-      "title": "Chairlady",
-      "image": "./assets/images/members/ai-image-4.jpeg",
-      "bio": "Emma Johnson is a dedicated professional with a passion for youth empowerment and community development. As the Chairlady of our organization, she oversees strategic planning and ensures the effective execution of our mission to elevate youths and young teenagers. With a background in leadership development and event management, Emma aspires to create impactful initiatives that support the growth of youth businesses, nurture talents, and promote mental health and financial literacy. She is honored to lead a team committed to making a positive difference in the lives of young people."
-    },
-    {
-      "name": "Stanford N Muriuki",
+  {
+      "name": "Wangúi Muthama",
+      "title": "Co-founder",
+      "image": "",
+      "bio": "Wangúi Muthama is the founder of the series events 'Stories Na Ma Youth'. I am a lover of art, water, books, theories, knowledge, sleep, good food, good time, and peace. I love poems, my favorite poet being 'Mufasa the Poet'. My background in Criminology makes me a dynamic expert transversing many fields. Wangúi believes Youth have equal rights and voices in positively shaping the dynamics of Kenya and Africa at large. Youth non-participation and non-inclusion therefore is a menace that needs immediate fixing. Through Stories Na Ma Youth I get to educate you about Kenyan youths so as to better know how to engage them fully and beneficially. I believe Kenya and Africa have the best of minds and these minds have and need to be listened to!"
+  },
+  {
+      "name": "Stannford N Muriuki",
       "title": "Co-founder",
       "image": "/images/members/jairo.jpeg",
-      "bio": ["I am a creator with great enthusiasm towards art and artists at large.",
-      "Commonly known by my stage  name Jairoh stan  i take great pleassure in excercising my gifts towards the greater good  of the society.That's why we came together and curated a forum/ platform that will assist young peole express themselves via  arts.",
-      "We have managed to put up several events by the name 'stories na mayouth event series' ",
-    "Whereby we cover issues that affect us as young people and also try to come up with solutions and recommendations towards bringing a solution. Im a strong believer of teamwork, and lead by example by being an active teamplayer.",
-  "We are working towards a vision and a mission  greater than ourselves and that the core purpose of our teamwork. Unity is strenth."]
-    },
-    {
-      "name": "Sophia Martinez",
-      "title": "Secretary",
-      "image": "./assets/images/members/ai-image-4.jpeg",
-      "bio": "Sophia Martinez is a dedicated professional with a background in administration and communication. As Secretary, she plays a crucial role in maintaining accurate records, coordinating communications, and supporting the smooth operation of the organization. Sophia is passionate about empowering youth and promoting mental health awareness. She believes in the power of effective communication and collaboration to drive positive change in communities. Sophia is excited to be part of an organization that values inclusivity, creativity, and personal growth."
-    },
-    {
-      "name": "Michael Brown",
+      "bio": "I am a creator with great enthusiasm towards art and artists at large. Commonly known by my stage  name Jairoh stan  i take great pleassure in excercising my gifts towards the greater good  of the society. That's why we came together and curated a forum/ platform that will assist young peole express themselves via  arts. We have managed to put up several events by the name 'stories na mayouth event series'. Whereby we cover issues that affect us as young people and also try to come up with solutions and recommendations towards bringing a solution. We are working towards a vision and a mission  greater than ourselves and that the core purpose of our teamwork. Unity is strenth."
+  },
+  {
+      "name": "Wanga Masakha",
+      "title": "Creative Manager.",
+      "image": "./assets/images/members/SamuelWanga.jpg",
+      "bio": "Wanga Masakha is a professional self taught visual artist, with 8 years of experience, who uses different media to come up with hyper-realistic drawings. Wanga specialises in canvas paintings, charcoal realistic drawings, flower vase customization, interior decoration, baking and cake art, and is responsible for educating and training other members in short skills, in areas that he specialises in. Wanga is a powerful force in the group and uses his  positive attitude and tireless energy to encourage others to work hard and succeed. Wanga is inspired daily by the beauty of nature and the love of music."
+  },
+  {
+      "name": "Ruth Wanga",
       "title": "Member",
-      "image": "./assets/images/members/ai-image-4.jpeg",
-      "bio": "Michael Brown is a motivated individual with a passion for youth empowerment and community engagement. As a member of our organization, he actively participates in planning and executing events that support young entrepreneurs, artists, and leaders. With a focus on fostering leadership skills and promoting mental health awareness, Michael is committed to making a meaningful impact on the lives of young people. He is grateful for the opportunity to collaborate with like-minded individuals and contribute to the positive development of youth in our community."
-    },
-    {
-      "name": "Emily Wilson",
-      "title": "Member",
-      "image": "./assets/images/members/ai-image-4.jpeg",
-      "bio": "Emily Wilson is a dedicated advocate for youth development and community empowerment. As a member of our organization, she actively contributes her time and skills to support initiatives that promote financial literacy, mental health awareness, and leadership development among young people. Emily is passionate about creating opportunities for youth to explore their talents and pursue their aspirations. She is proud to be part of a team that is committed to making a difference in the lives of young people."
-    },
-    {
-      "name": "Daniel Thompson",
-      "title": "Member",
-      "image": "./assets/images/members/ai-image-4.jpeg",
-      "bio": "Daniel Thompson is a proactive individual with a passion for community service and youth mentorship. As a member of our organization, he actively participates in organizing events and workshops aimed at supporting young entrepreneurs and fostering leadership skills. Daniel believes in the importance of holistic development and is dedicated to promoting mental health awareness and financial literacy among youth. He is excited to be part of an organization that prioritizes the well-being and growth of young people."
-    }
-  ]
-  
+      "image": "./assets/images/members/RuthWanga.jpg",
+      "bio": "Ruth Wanga is a croche artist that dreams big. A hook and yarn are my current best friends. My creations are greatly inspired by most of the Kenyan yarnist who are doing amazing in the croche world. My mom was a great contributor to what I'm doing today, she would create amazing designs from her head. I'm a lover of food and good music. I believe that my style is what gives me the confidence and as Amit Kalantri said, 'Take care of your costume and your confidence will take care of itself'. Wangacreations is a brand that will grow to become something great and known to all."
+  },
+  {
+      "name": "Anthony Mwaura",
+      "title": "IT specialist",
+      "image": "",
+      "bio": ""
+  }
+]

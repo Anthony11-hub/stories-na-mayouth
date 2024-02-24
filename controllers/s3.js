@@ -13,6 +13,11 @@ const s3 = new S3({
   secretAccessKey,
 });
 
+/**
+ * Uploads a file to an S3 bucket
+ * @param {object} file - the file to upload
+ * @returns {Promise} a promise that resolves when the file upload is complete
+ */
 function uploadFile(file) {
   const fileStream = fs.createReadStream(file.path);
 
